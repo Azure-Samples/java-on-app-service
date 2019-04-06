@@ -5,7 +5,6 @@ Each Java project in this directory addresses a specific scenario on App Service
 ## Contents
 
 1. Deploying with Maven
-1. Deploying with Maven
 2. Deploying from the command line
 3. Connecting to data sources
 4. Integrating with Redis Cache
