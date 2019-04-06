@@ -1,57 +1,31 @@
-# Project Name
+# Java Scenarios on App Service
 
-(short, 1-3 sentenced, description of the project)
+Each Java project in this directory addresses a specific scenario on App Service. See the table of contents below for links to each project.
 
-## Features
+## Contents
 
-This project framework provides the following features:
-
-* Feature 1
-* Feature 2
-* ...
+1. Deploying with Maven
+1. Deploying with Maven
+2. Deploying from the command line
+3. Connecting to data sources
+4. Integrating with Redis Cache
+5. Outsourcing user sessions to Redis
+6. Setting up an APM
+7. EasyAuth and Tomcat
+8. Configuring deployment slots
+9. CI/CD with Azure DevOps
+10. Using the Java Flight Recorder
 
 ## Getting Started
 
 ### Prerequisites
 
-(ideally very short, if any)
+- [Maven 3](https://maven.apache.org/download.cgi)
+- [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
 
-- OS
-- Library version
-- ...
-
-### Installation
-
-(ideally very short)
-
-- npm install [package name]
-- mvn install
-- ...
-
-### Quickstart
-(Add steps to get up and running quickly)
-
-1. git clone [repository clone url]
-2. cd [respository name]
-3. ...
-
-
-## Demo
-
-A demo app is included to show how to use the project.
-
-To run the demo, follow these steps:
-
-(Add steps to start up the demo)
-
-1.
-2.
-3.
 
 ## Resources
 
-(Any additional resources or related projects)
-
-- Link to supporting information
-- Link to similar sample
-- ...
+- [Developer Guide for Java on App Service Linux](https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-java)
+- [App Service Linux docs](https://docs.microsoft.com/en-us/azure/app-service/containers/)
+- [App Service Windows docs](https://docs.microsoft.com/en-us/azure/app-service/)
