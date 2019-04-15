@@ -5,15 +5,15 @@ Each Java project in this directory addresses a specific scenario on App Service
 ## Contents
 
 1. Deploying with Maven
-2. Deploying from the command line
-3. Connecting to data sources
-4. Integrating with Redis Cache
-5. Outsourcing user sessions to Redis
-6. Setting up an APM
-7. EasyAuth and Tomcat
-8. Configuring deployment slots
-9. CI/CD with Azure DevOps
-10. Using the Java Flight Recorder
+1. Deploying from the command line
+1. Connecting to data sources
+1. Integrating with Redis Cache
+1. Outsourcing user sessions to Redis
+1. Setting up an APM
+1. EasyAuth and Tomcat
+1. Configuring deployment slots
+1. CI/CD with Azure DevOps
+1. Using the Java Flight Recorder
 
 ## Getting Started
 
