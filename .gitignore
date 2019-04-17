@@ -19,7 +19,7 @@
 *.rar
 
 # Target directory
-**/target/
+**/target/*
 
 ### end Java ###
 
