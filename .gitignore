@@ -12,13 +12,14 @@
 .mtj.tmp/
 
 # Package Files #
-*.jar
-*.war
 *.nar
 *.ear
 *.zip
 *.tar.gz
 *.rar
+
+# Target directory
+**/target/
 
 ### end Java ###
 
@@ -180,3 +181,8 @@ local.properties
 .sts4-cache/
 
 #### End of Eclipse ###
+
+### VS Code ###
+.vscode/
+
+### End of VS Code ###
