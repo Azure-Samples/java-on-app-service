@@ -35,7 +35,7 @@ Now that we have confirmed the JAR runs locally, we will deploy and run this app
     </plugin>
     ```
 
-1. Next, we will use the plugin to generate the configuration for our webapp. Run the `mvn azure-webapp:generate` command and select the default options in the following prompts. The command will generate a configuration similar to the one below. Feel free to change the resource group and app name to something more memorable.
+1. Next, we will use the plugin to generate the configuration for our webapp. Run the `mvn azure-webapp:config` command and select the default options in the following prompts. The command will generate a configuration similar to the one below. Feel free to change the resource group and app name to something more memorable.
 
     ```xml
     <configuration>
