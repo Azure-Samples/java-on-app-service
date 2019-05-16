@@ -6,10 +6,10 @@ These instructions will walk through the process of configuring a PostgreSQL dat
 
 Our Spring Boot application uses Spring Data JPA to map our Java objects to relational objects in the PostgreSQL database. Under the hood, Spring Data JPA uses Hibernate, an implementation of the JPA specification. This means we use Spring's annotations and interfaces instead of  explicitly writing SQL commands in our application. This project is configured with an in-memory H2 database for local development and testing. To run the app locally, run the following commands from the `initial/` directory.
 
-    ```bash
-    mvn clean package
-    java -jar target/app.jar
-    ```
+```bash
+mvn clean package
+java -jar target/app.jar
+```
 
 Open a browser to `http://localhost:8080/` and you will see a simple link to create a new product. Try creating a new product with an example description, price, and image URL. You can see the SQL commands in the terminal. If you kill the app and restart it, the contents will be lost because H2 is an embedded, in-memory database. You can see all the items in the database by browsing to `http://localhost:8080/product/list`
 
