@@ -2,18 +2,19 @@
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">  
   <modelVersion>4.0.0</modelVersion>  
-  <groupId>guru.springframework</groupId>  
+  <groupId>example.springframework</groupId>  
   <artifactId>spring-boot-postgres</artifactId>  
   <version>0.0.1-SNAPSHOT</version>  
   <packaging>jar</packaging>  
   <name>spring-boot-postgres</name>  
+
   <description>Demo project for Spring Boot and PostgreSQL</description>  
+
   <parent> 
     <groupId>org.springframework.boot</groupId>  
     <artifactId>spring-boot-starter-parent</artifactId>  
     <version>2.0.0.RELEASE</version>  
     <relativePath/>  
-    <!-- lookup parent from repository --> 
   </parent>  
   <properties> 
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>  
@@ -42,29 +43,27 @@
       <artifactId>spring-boot-starter-test</artifactId>  
       <scope>test</scope> 
     </dependency>  
-    <dependency> 
-      <!-- HSQL DB for local development -->  
-      <groupId>org.hsqldb</groupId>  
-      <artifactId>hsqldb</artifactId>  
-      <scope>runtime</scope> 
-    </dependency> 
+      <!-- In-memory H2 DB for local development. -->  
+    <dependency>
+          <groupId>com.h2database</groupId>
+          <artifactId>h2</artifactId>
+          <scope>runtime</scope>
+      </dependency>
   </dependencies>  
   <profiles> 
     <profile> 
       <!-- 
-				This profile will configure Spring to use an in-memory database 
-				for local development and testing. 
-			-->  
+				This profile will configure Spring to use an in-memory database for local development and testing. -->  
       <id>development</id>  
       <activation> 
         <activeByDefault>true</activeByDefault> 
       </activation>  
       <properties> 
-        <spring.datasource.url>jdbc:hsqldb:mem:testdb;MODE=PostgreSQL;DB_CLOSE_DELAY=-1</spring.datasource.url>  
+        <spring.datasource.url>jdbc:h2:mem:testdb</spring.datasource.url>  
         <spring.datasource.username>sa</spring.datasource.username>  
-        <spring.datasource.password/>  
-        <spring.datasource.driver-class-name>org.hsqldb.jdbc.JDBCDriver</spring.datasource.driver-class-name>  
-        <spring.jpa.properties.hibernate.dialect>org.hibernate.dialect.PostgreSQLDialect</spring.jpa.properties.hibernate.dialect>  
+        <spring.datasource.password></spring.datasource.password>  
+        <spring.datasource.driver-class-name>org.h2.Driver</spring.datasource.driver-class-name>  
+        <spring.jpa.properties.hibernate.dialect>org.hibernate.dialect.H2Dialect</spring.jpa.properties.hibernate.dialect>  
         <spring.jpa.hibernate.ddl-auto>update</spring.jpa.hibernate.ddl-auto>  
         <server.port>8080</server.port> 
       </properties> 
@@ -73,10 +72,7 @@
       <!-- This profile will configure the application to use our Azure PostgreSQL server. -->  
       <id>production</id>  
       <properties> 
-        <!-- Paste the connection string XML snippet here. -->  
-        <spring.datasource.url>${POSTGRES_URL}</spring.datasource.url>  
-        <spring.datasource.username>${POSTGRES_USERNAME}</spring.datasource.username>  
-        <spring.datasource.password>${POSTGRES_PASSWORD}</spring.datasource.password>  
+        <!-- Paste the connection string XML snippet here. -->   
         <spring.datasource.driver-class-name>org.postgresql.Driver</spring.datasource.driver-class-name>  
         <spring.jpa.properties.hibernate.dialect>org.hibernate.dialect.PostgreSQLDialect</spring.jpa.properties.hibernate.dialect>  
         <spring.jpa.hibernate.ddl-auto>create</spring.jpa.hibernate.ddl-auto>  
@@ -93,8 +89,8 @@
         <version>1.5.4</version>  
         <configuration>
           <schemaVersion>V2</schemaVersion>
-          <resourceGroup>freebergDemo</resourceGroup>
-          <appName>freebergPostgresDemo</appName>
+          <resourceGroup>YOUR RESOURCE GROUP</resourceGroup>
+          <appName>YOUR APP NAME</appName>
           <region>westus</region>
           <pricingTier>P1V2</pricingTier>
           <runtime>

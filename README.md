@@ -20,9 +20,12 @@ Each Java project in this directory addresses a specific scenario on App Service
 
 ### Prerequisites
 
+You will need the following tools installed locally to complete these tutorials.
+
 - [Maven 3](https://maven.apache.org/download.cgi)
 - [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
-
+- Java 8
+  - The [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) for VS Code makes it easy to download and install the JDK from a variety of JDK providers.
 
 ## Resources
 
