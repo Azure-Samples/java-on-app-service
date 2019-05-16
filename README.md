@@ -7,7 +7,7 @@ Each Java project in this directory addresses a specific scenario on App Service
 1. [Deploying with Maven](/maven-deployment)
 1. Deploying from the command line
 1. [Connecting to data sources](/data-sources)
-    1. [Using KeyVault References](/key-vault)
+    1. [Using Key Vault References](/key-vault)
 1. Integrating with Redis Cache
 1. Outsourcing user sessions to Redis
 1. Setting up an APM
