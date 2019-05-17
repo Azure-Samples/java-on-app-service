@@ -44,11 +44,11 @@
       <artifactId>spring-boot-starter-test</artifactId>  
       <scope>test</scope> 
     </dependency>  
-    <dependency> 
-      <!-- HSQL DB for local development -->  
-      <groupId>org.hsqldb</groupId>  
-      <artifactId>hsqldb</artifactId>  
-      <scope>runtime</scope> 
+    <dependency>
+      <!-- In-memory H2 DB for local development. -->  
+      <groupId>com.h2database</groupId>
+      <artifactId>h2</artifactId>
+      <scope>runtime</scope>
     </dependency> 
   </dependencies>  
   <profiles> 
@@ -59,11 +59,11 @@
         <activeByDefault>true</activeByDefault> 
       </activation>  
       <properties> 
-        <spring.datasource.url>jdbc:hsqldb:mem:testdb;MODE=PostgreSQL;DB_CLOSE_DELAY=-1</spring.datasource.url>  
+        <spring.datasource.url>jdbc:h2:mem:testdb</spring.datasource.url>  
         <spring.datasource.username>sa</spring.datasource.username>  
-        <spring.datasource.password/>  
-        <spring.datasource.driver-class-name>org.hsqldb.jdbc.JDBCDriver</spring.datasource.driver-class-name>  
-        <spring.jpa.properties.hibernate.dialect>org.hibernate.dialect.PostgreSQLDialect</spring.jpa.properties.hibernate.dialect>  
+        <spring.datasource.password></spring.datasource.password>  
+        <spring.datasource.driver-class-name>org.h2.Driver</spring.datasource.driver-class-name>  
+        <spring.jpa.properties.hibernate.dialect>org.hibernate.dialect.H2Dialect</spring.jpa.properties.hibernate.dialect>  
         <spring.jpa.hibernate.ddl-auto>update</spring.jpa.hibernate.ddl-auto>  
         <server.port>8080</server.port> 
       </properties> 
@@ -72,9 +72,9 @@
       <!-- This profile will configure the application to use our Azure PostgreSQL server. -->  
       <id>production</id>  
       <properties>  
-        <spring.datasource.url>${env:POSTGRES_URL}</spring.datasource.url>  
-        <spring.datasource.username>${env:POSTGRES_USERNAME}</spring.datasource.username>  
-        <spring.datasource.password>${env:POSTGRES_PASSWORD}</spring.datasource.password>  
+        <spring.datasource.url>POSTGRES_URL</spring.datasource.url>  
+        <spring.datasource.username>POSTGRES_USERNAME</spring.datasource.username>  
+        <spring.datasource.password>POSTGRES_PASSWORD</spring.datasource.password>  
         <spring.datasource.driver-class-name>org.postgresql.Driver</spring.datasource.driver-class-name>  
         <spring.jpa.properties.hibernate.dialect>org.hibernate.dialect.PostgreSQLDialect</spring.jpa.properties.hibernate.dialect>  
         <spring.jpa.hibernate.ddl-auto>create</spring.jpa.hibernate.ddl-auto>  
@@ -86,6 +86,7 @@
     <finalName>app</finalName>  
     <plugins> 
       <plugin> 
+        <!-- Plugin to deploy to Azure App Service -->
         <groupId>com.microsoft.azure</groupId>  
         <artifactId>azure-webapp-maven-plugin</artifactId>  
         <version>1.5.4</version>  
@@ -110,6 +111,21 @@
               </resource>
             </resources>
           </deployment>
+          <!-- Add the App Settings here -->
+          <appSettings>
+            <property>
+                <name>POSTGRES_USERNAME</name>
+                <value>@Microsoft.KeyVault(INSERT_ID_HERE)</value>
+            </property>
+            <property>
+                <name>POSTGRES_PASSWORD</name>
+                <value>@Microsoft.KeyVault(INSERT_ID_HERE)</value>
+            </property>
+            <property>
+                <name>POSTGRES_URL</name>
+                <value>@Microsoft.KeyVault(INSERT_ID_HERE)</value>
+            </property>
+          </appSettings>
         </configuration>
       </plugin>  
       <plugin> 
