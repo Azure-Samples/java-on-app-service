@@ -61,9 +61,9 @@ Our Spring app will be able to access these secrets when deployed on App Service
 1. First, we need the URI's of our three secrets. Run the commands below and copy the `id` value in each.
 
     ```bash
+    az keyvault secret show --vault-name java-app-key-vault --name POSTGRES-URL
     az keyvault secret show --vault-name java-app-key-vault --name POSTGRES-USERNAME
     az keyvault secret show --vault-name java-app-key-vault --name POSTGRES-PASSWORD
-    az keyvault secret show --vault-name java-app-key-vault --name POSTGRES-URL
     ```
 
 1. Add the following to the Azure App Service plugin section of the `pom.xml`. Adding this configuration will create Application Settings with the given name and value. The value of each setting should be a Key Vault reference with the corresponding `id` from the previous step.
@@ -195,19 +195,21 @@ The Key Vault references will be replaced with the actual secrets when our App S
 
 Check that the development profile works as expected by running the following commands and opening a browser to `http://localhost:8080/`.
 
-    ```bash
-    mvn clean package -Pdev
-    java -jar target/app.jar
-    ``` 
+```bash
+mvn clean package -Pdev
+java -jar target/app.jar
+```
 
 Before deploying to App Service, you can build your application with the production profile and test against your PostgreSQL DB from your local machine. To do so, simply rename the three environment variables beginning with `POSTGRES_` and rename them to `SPRING_DATASOURCE_URL`, `SPRING_DATASOURCE_USERNAME`, and `SPRING_DATASOURCE_PASSWORD` respectively. Run the following commands to build and start your app. Spring will resolve the connection strings in the environment variables at runtime.
 
-    ```BASH
-    mvn clean package -Pprod
-    java -jar target/app.jar
-    ```  
+```BASH
+mvn clean package -Pprod
+java -jar target/app.jar
+```
 
-Finally, deploy the production app to App Service with `mvn azure-webb:deploy`. Browse to the application and test that the application works properly.
+> If you did not rename your local environment variables, skip the tests with `mvn clean package -Pprod -DskipTests`
+
+Finally, deploy the production app to App Service with `mvn azure-webapp:deploy`. Browse to the application and test that it works properly.
 
 ## Next Steps
 

@@ -72,6 +72,12 @@
   </profiles>  
   <build> 
     <finalName>app</finalName>  
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
     <plugins> 
       <plugin> 
         <!-- Plugin to deploy to Azure App Service -->
@@ -103,15 +109,15 @@
           <appSettings>
             <property>
                 <name>SPRING_DATASOURCE_URL</name>
-                <value>@Microsoft.KeyVault(INSERT_ID_HERE)</value>
+                <value>@Microsoft.KeyVault(SecretUri=https://java-app-key-vault.vault.azure.net/secrets/POSTGRES-URL/f709bcd6e22c4bf9ae45450723de57cf)</value>
             </property>
             <property>
                 <name>SPRING_DATASOURCE_USERNAME</name>
-                <value>@Microsoft.KeyVault(INSERT_ID_HERE)</value>
+                <value>@Microsoft.KeyVault(SecretUri=https://java-app-key-vault.vault.azure.net/secrets/POSTGRES-USERNAME/9916928325f04d39bd32090e7b8c50c2)</value>
             </property>
             <property>
                 <name>SPRING_DATASOURCE_PASSWORD</name>
-                <value>@Microsoft.KeyVault(INSERT_ID_HERE)</value>
+                <value>@Microsoft.KeyVault(SecretUri=https://java-app-key-vault.vault.azure.net/secrets/POSTGRES-PASSWORD/c48296be80c14723980d1aa025be4a5e)</value>
             </property>
           </appSettings>
         </configuration>
