@@ -72,9 +72,9 @@
       <!-- This profile will configure the application to use our Azure PostgreSQL server. -->  
       <id>production</id>  
       <properties>  
-        <spring.datasource.url>POSTGRES_URL</spring.datasource.url>  
-        <spring.datasource.username>POSTGRES_USERNAME</spring.datasource.username>  
-        <spring.datasource.password>POSTGRES_PASSWORD</spring.datasource.password>  
+        <spring.datasource.url>${POSTGRES_URL}</spring.datasource.url>
+        <spring.datasource.username>${POSTGRES_USERNAME}</spring.datasource.username>
+        <spring.datasource.password>${POSTGRES_PASSWORD}</spring.datasource.password>  
         <spring.datasource.driver-class-name>org.postgresql.Driver</spring.datasource.driver-class-name>  
         <spring.jpa.properties.hibernate.dialect>org.hibernate.dialect.PostgreSQLDialect</spring.jpa.properties.hibernate.dialect>  
         <spring.jpa.hibernate.ddl-auto>create</spring.jpa.hibernate.ddl-auto>  

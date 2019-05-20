@@ -52,8 +52,7 @@
   </dependencies>  
   <profiles> 
     <profile> 
-      <!-- 
-				This profile will configure Spring to use an in-memory database for local development and testing. -->  
+      <!-- This profile will configure Spring to use an in-memory database for local development and testing. -->  
       <id>development</id>  
       <activation> 
         <activeByDefault>true</activeByDefault> 
