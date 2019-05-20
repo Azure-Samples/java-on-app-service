@@ -54,31 +54,19 @@
   <profiles> 
     <profile> 
       <!-- This profile will configure Spring to use an in-memory database for local development and testing. -->  
-      <id>development</id>  
+      <id>dev</id>  
       <activation> 
         <activeByDefault>true</activeByDefault> 
       </activation>  
       <properties> 
-        <spring.datasource.url>jdbc:h2:mem:testdb</spring.datasource.url>  
-        <spring.datasource.username>sa</spring.datasource.username>  
-        <spring.datasource.password></spring.datasource.password>  
-        <spring.datasource.driver-class-name>org.h2.Driver</spring.datasource.driver-class-name>  
-        <spring.jpa.properties.hibernate.dialect>org.hibernate.dialect.H2Dialect</spring.jpa.properties.hibernate.dialect>  
-        <spring.jpa.hibernate.ddl-auto>update</spring.jpa.hibernate.ddl-auto>  
-        <server.port>8080</server.port> 
+        <spring.profiles.active>dev</spring.profiles.active>
       </properties> 
     </profile>  
     <profile> 
       <!-- This profile will configure the application to use our Azure PostgreSQL server. -->  
-      <id>production</id>  
+      <id>prod</id>  
       <properties>  
-        <spring.datasource.url>${POSTGRES_URL}</spring.datasource.url>
-        <spring.datasource.username>${POSTGRES_USERNAME}</spring.datasource.username>
-        <spring.datasource.password>${POSTGRES_PASSWORD}</spring.datasource.password>  
-        <spring.datasource.driver-class-name>org.postgresql.Driver</spring.datasource.driver-class-name>  
-        <spring.jpa.properties.hibernate.dialect>org.hibernate.dialect.PostgreSQLDialect</spring.jpa.properties.hibernate.dialect>  
-        <spring.jpa.hibernate.ddl-auto>create</spring.jpa.hibernate.ddl-auto>  
-        <server.port>80</server.port> 
+        <spring.profiles.active>prod</spring.profiles.active>
       </properties> 
     </profile> 
   </profiles>  
@@ -114,15 +102,15 @@
           <!-- Add the App Settings here -->
           <appSettings>
             <property>
-                <name>POSTGRES_USERNAME</name>
+                <name>SPRING_DATASOURCE_URL</name>
                 <value>@Microsoft.KeyVault(INSERT_ID_HERE)</value>
             </property>
             <property>
-                <name>POSTGRES_PASSWORD</name>
+                <name>SPRING_DATASOURCE_USERNAME</name>
                 <value>@Microsoft.KeyVault(INSERT_ID_HERE)</value>
             </property>
             <property>
-                <name>POSTGRES_URL</name>
+                <name>SPRING_DATASOURCE_PASSWORD</name>
                 <value>@Microsoft.KeyVault(INSERT_ID_HERE)</value>
             </property>
           </appSettings>
