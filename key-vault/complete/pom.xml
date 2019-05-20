@@ -86,8 +86,8 @@
         <version>1.5.4</version>  
         <configuration>
           <schemaVersion>V2</schemaVersion>
-          <resourceGroup>freebergDemo</resourceGroup>
-          <appName>freebergPostgresDemo</appName>
+          <resourceGroup>YOUR RESOURCE GROUP</resourceGroup>
+          <appName>YOUR RESOURCE GRUOP</appName>
           <region>westus</region>
           <pricingTier>P1V2</pricingTier>
           <runtime>
@@ -109,15 +109,15 @@
           <appSettings>
             <property>
                 <name>SPRING_DATASOURCE_URL</name>
-                <value>@Microsoft.KeyVault(SecretUri=https://java-app-key-vault.vault.azure.net/secrets/POSTGRES-URL/f709bcd6e22c4bf9ae45450723de57cf)</value>
+                <value>@Microsoft.KeyVault(SecretUri=YOUR_SECRET_UIR)</value>
             </property>
             <property>
                 <name>SPRING_DATASOURCE_USERNAME</name>
-                <value>@Microsoft.KeyVault(SecretUri=https://java-app-key-vault.vault.azure.net/secrets/POSTGRES-USERNAME/9916928325f04d39bd32090e7b8c50c2)</value>
+                <value>@Microsoft.KeyVault(SecretUri=YOUR_SECRET_UIR)</value>
             </property>
             <property>
                 <name>SPRING_DATASOURCE_PASSWORD</name>
-                <value>@Microsoft.KeyVault(SecretUri=https://java-app-key-vault.vault.azure.net/secrets/POSTGRES-PASSWORD/c48296be80c14723980d1aa025be4a5e)</value>
+                <value>@Microsoft.KeyVault(SecretUri=YOUR_SECRET_UIR)</value>
             </property>
           </appSettings>
         </configuration>
