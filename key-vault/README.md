@@ -69,23 +69,23 @@ Our Spring app will be able to access these secrets when deployed on App Service
 1. Add the following to the Azure App Service plugin section of the `pom.xml`. Adding this configuration will create Application Settings with the given name and value. The value of each setting should be a Key Vault reference with the corresponding `id` from the previous step.
 
     ```xml
-    <appSettings>
+     <appSettings>
       <property>
         <name>SPRING_DATASOURCE_URL</name>
-        <value>@Microsoft.KeyVault(INSERT_ID_HERE)</value>
+        <value>@Microsoft.KeyVault(SecretUri=YOUR_SECRET_UIR)</value>
       </property>
       <property>
         <name>SPRING_DATASOURCE_USERNAME</name>
-        <value>@Microsoft.KeyVault(INSERT_ID_HERE)</value>
+        <value>@Microsoft.KeyVault(SecretUri=YOUR_SECRET_UIR)</value>
       </property>
       <property>
         <name>SPRING_DATASOURCE_PASSWORD</name>
-        <value>@Microsoft.KeyVault(INSERT_ID_HERE)</value>
+        <value>@Microsoft.KeyVault(SecretUri=YOUR_SECRET_UIR)</value>
       </property>
     </appSettings>
     ```
 
-    A Key Vault reference is of the form `@Microsoft.KeyVault(SecretURI)`, where `SecretURI` is data-plane URI of a secret in Key Vault, including a version. There is an alternate syntax [documented here](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#reference-syntax).
+    A Key Vault reference is of the form `@Microsoft.KeyVault(SecretUri=<SecretURI>)`, where `<SecretURI>` is data-plane URI of a secret in Key Vault, including a version. There is an alternate syntax [documented here](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#reference-syntax).
 
 ### Environment Configuration
 
@@ -175,17 +175,17 @@ The Key Vault references will be replaced with the actual secrets when our App S
         <!-- This profile will configure Spring to use an in-memory database for local development and testing. -->  
         <id>dev</id>  
         <activation>
-            <activeByDefault>true</activeByDefault>
+          <activeByDefault>true</activeByDefault>
         </activation>  
         <properties>
-            <spring.profiles.active>dev</spring.profiles.active>
+          <spring.profiles.active>dev</spring.profiles.active>
         </properties>
       </profile>  
       <profile>
         <!-- This profile will configure the application to use our Azure PostgreSQL server. -->  
         <id>prod</id>  
         <properties>  
-            <spring.profiles.active>prod</spring.profiles.active>
+          <spring.profiles.active>prod</spring.profiles.active>
         </properties>
       </profile>
     </profiles>
