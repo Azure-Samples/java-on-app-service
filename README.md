@@ -13,7 +13,9 @@ Each Java project in this directory addresses a specific scenario on App Service
 1. Setting up an APM
 1. EasyAuth and Tomcat
 1. Configuring deployment slots
-1. CI/CD with Azure DevOps
+1. CI/CD
+    1. [with Jenkins](cicd-jenkins.md)
+    1. with Azure DevOps
 1. Using the Java Flight Recorder
 
 ## Getting Started
