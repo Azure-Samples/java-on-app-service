@@ -3,7 +3,6 @@ page_type: sample
 languages:
 - java
 - html
-- other
 products:
 - azure
 description: "Each Java project in this directory addresses a specific scenario on App Service. See the table of contents below for links to each project."
