@@ -18,7 +18,7 @@ First, test that the application builds and runs successfully.
     java -jar ./target/app.jar
     ```
 
-1. Open your browser and navigate to `http://localhost:8080/`. (Try `http://127.0.0.1:8080/` if the first link does not work.) You should see a simple web page with green text displaying, "Hello App Service!"
+1. Open your browser and navigate to `http://localhost/`. (Try `http://127.0.0.1/` if the first link does not work.) You should see a simple web page with green text displaying, "Hello App Service!"
 
 ## Deploying to App Service with Maven
 
@@ -30,8 +30,8 @@ Now that we have confirmed the JAR runs locally, we will deploy and run this app
     <plugin>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-webapp-maven-plugin</artifactId>
-        <!-- check Maven Central for the latest version -->
-        <version>1.5.3</version>
+        <!-- Check Maven Central (https://search.maven.org/) for the latest version -->
+        <version>1.15.0</version>
     </plugin>
     ```
 
