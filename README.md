@@ -11,6 +11,11 @@ urlFragment: java-on-app-service
 
 # Java Scenarios on App Service
 
+> [!NOTE]
+> For Spring applications, we recommend using Azure Spring Apps. However, you can still use Azure App Service as a destination. 
+
+https://github.com/Azure-Samples/java-on-app-service/
+
 Each Java project in this directory addresses a specific scenario on App Service. See the table of contents below for links to each project.
 
 ## Contents
